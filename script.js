@@ -6,8 +6,10 @@ const description = document.querySelector('.desc');
 const windStat = document.querySelector('.wind-stat');
 const humidityStat = document.querySelector('.humidity-stat');
 const cloudStat = document.querySelector('.cloud-stat');
-const loader = document.querySelector('.load');
+// const loader = document.querySelector('.load');
 const weatherContainer = document.querySelector('.weather-data-container');
+const errorPage = document.querySelector('.error-image');
+const currWeather = document.querySelector('.weather-condition');
 
 
 
@@ -16,11 +18,30 @@ const APIkey = '4f712e2d8f10efcb77274bc8ece460b6';
 searchBtn.addEventListener('click', ()=>{
     let location = searchField.value;
     if(location == ""){
-        alert('please enter a valid location');
+        alert('Please Enter a Valid Location');
     }
     else{
-        loader.classList.add('loader');
+        weatherContainer.classList.remove('active');
+        errorPage.classList.remove('error-active');
+        // loader.classList.add('three-body');
         searchLocationWeather(location);
+    }
+})
+
+searchField.addEventListener('keydown', (event)=>{
+    if(event.key === 'Enter'){
+        console.log('pressed enter');
+        let location = searchField.value;
+        if(location == ""){
+            alert('Please Enter a Valid Location');
+        }
+        else{
+            weatherContainer.classList.remove('active');
+            errorPage.classList.remove('error-active');
+            // loader.classList.add('three-body');
+            searchLocationWeather(location);
+        }
+        
     }
 })
 
@@ -29,12 +50,20 @@ async function searchLocationWeather(location){
     try {
         const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${APIkey}&units=metric`);
         const result = await response.json();
-        loader.classList.remove('loader');
-        weatherContainer.classList.add('active');
-        renderWeatherData(result);
+        if(result.message == 'city not found'){
+            // loader.classList.remove('three-body');
+            errorPage.classList.add('error-active');
+        }
+        else{
+            // loader.classList.remove('three-body');
+            errorPage.classList.remove('error-active');
+            renderWeatherData(result);
+            weatherContainer.classList.add('active');
+        }
     } 
     catch (error) {
-        alert('API not found')
+        errorPage.classList.add('error-active');
+        // loader.classList.remove('three-body');
     }
 }
 
@@ -44,9 +73,26 @@ function renderWeatherData(data){
     temp.innerHTML = data?.main?.temp + `&deg;C`;
     description.innerText = data?.weather?.[0]?.description;
 
-    let wind = data?.wind?.speed * 3.6;
-    windStat.innerText = wind.toFixed(2) + 'km/h';
+    let value = data?.weather?.[0]?.main;
+    if(value == 'Clouds'){
+        currWeather.src = 'assets/cloudy.png';
+    }
+    else if(value == 'Clear'){
+        currWeather.src = 'assets/clear.png';
+    }
+    else if(value == 'Atmosphere'){
+        currWeather.src = 'assets/atmosphere.png';
+    }
+    else if(value == 'Snow'){
+        currWeather.src = 'assets/snow.png';
+    }
+    else if(value == 'Rain'){
+        currWeather.src = 'assets/rain.png';
+    }
 
-    humidityStat.innerText = data?.main?.humidity + '%';    cloudStat.innerText = data?.clouds?.all + '%';
+    let wind = data?.wind?.speed * 3.6;
+    windStat.innerText = wind.toFixed(2) + ' km/h';
+    humidityStat.innerText = data?.main?.humidity + '%';    
+    cloudStat.innerText = data?.clouds?.all + '%';
 }   
 

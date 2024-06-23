@@ -16,10 +16,9 @@
 
 <body>
     <div class="wrapper">
-
         
         <div class="navbar">
-            <h1>WeatherSync.</h1>
+            <h1 class="tag-name">WeatherSync.</h1>
             <div class="search-bar">
                 <input type="text" name="" id="search-text" placeholder="Enter your city...">
                 <button class="search-btn">
@@ -27,16 +26,20 @@
                 </button>
             </div>
         </div>
-        
-        <span class="load"></span>
+
+        <div class="error-container">
+            <img src="assets/error404.jpg" class="error-image">
+        </div>
         
         <div class="weather-data-container">
-            <p class="place-desc">
-                Right Now in <span class="bold"></span>
-            </p>
+            <div>
+                <p class="place-desc">
+                    Right Now in <span class="bold"></span>
+                </p>
+            </div>
 
             <div class="img-temp-desc">
-                <img src="assets/cloudy.png" height="200" width="200">
+                <img src="" class="weather-condition">
                 <div class="weather-temp">
                     <p class="temp"></p>
                     <p class="desc"></p>
@@ -44,19 +47,22 @@
             </div>
 
             <div class="temp-stats">
-                <div class="stat">
+                <div class="statWeather">
                     <img src="assets/wind.png" height="80" width="80">
-                    <p class="wind-stat"></p>
+                    <p class="stat-heading">Wind</p>
+                    <p class="wind-stat stat"></p>
                 </div>
-
-                <div class="stat">
+                
+                <div class="statWeather">
                     <img src="assets/air.png" height="80" width="80">
-                    <p class="humidity-stat"></p>
+                    <p class="stat-heading">Humidity</p>
+                    <p class="humidity-stat stat"></p>
                 </div>
-
-                <div class="stat">
+                
+                <div class="statWeather">
                     <img src="assets/cloud.png" height="80" width="80">
-                    <p class="cloud-stat"></p>
+                    <p class="stat-heading">Clouds</p>
+                    <p class="cloud-stat stat"></p>
                 </div>
             </div>
         </div>
