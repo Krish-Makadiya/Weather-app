@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,7 +17,6 @@
 
 <body>
     <div class="wrapper">
-        
         <div class="navbar">
             <h1 class="tag-name">WeatherSync.</h1>
             <div class="search-bar">
@@ -26,10 +26,7 @@
                 </button>
             </div>
         </div>
-
-        <div class="error-container">
-            <img src="assets/error404.jpg" class="error-image">
-        </div>
+        
         
         <div class="weather-data-container">
             <div>
@@ -37,7 +34,7 @@
                     Right Now in <span class="bold"></span>
                 </p>
             </div>
-
+            
             <div class="img-temp-desc">
                 <img src="" class="weather-condition">
                 <div class="weather-temp">
@@ -48,19 +45,19 @@
 
             <div class="temp-stats">
                 <div class="statWeather">
-                    <img src="assets/wind.png" height="80" width="80">
+                    <img src="assets/wind.png" height="90" width="90">
                     <p class="stat-heading">Wind</p>
                     <p class="wind-stat stat"></p>
                 </div>
                 
                 <div class="statWeather">
-                    <img src="assets/air.png" height="80" width="80">
+                    <img src="assets/air.png" height="90" width="90">
                     <p class="stat-heading">Humidity</p>
                     <p class="humidity-stat stat"></p>
                 </div>
                 
                 <div class="statWeather">
-                    <img src="assets/cloud.png" height="80" width="80">
+                    <img src="assets/cloud.png" height="90" width="90">
                     <p class="stat-heading">Clouds</p>
                     <p class="cloud-stat stat"></p>
                 </div>
@@ -68,6 +65,10 @@
         </div>
     </div>
 
+    <div class="error-container">
+        <img src="assets/error404.jpg" class="error-image">
+    </div>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js"></script>
     <script src="script.js"></script>
 </body>
