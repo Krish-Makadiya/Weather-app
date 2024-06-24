@@ -51,8 +51,9 @@
 }
 
 .error-image {
-    height: 400px;
-    width: 400px;
+    height: 60vh;
+    object-fit: contain;
+    margin-top: -50px;
 }
 
 .error-active {
@@ -189,6 +190,10 @@ button {
     width: 200px;
 }
 
+.bold-text{
+    font-weight: 700;
+}
+
 .bold {
     font-weight: 700;
 }
@@ -262,6 +267,10 @@ button {
         height: 60vw;
         margin-top: 60px;
     }
+    .error-image{
+        height: 60vw;
+        margin-top: -100px;
+    }
     .weather-data-container {
         gap: 50px;
     }
@@ -305,6 +314,10 @@ button {
         height: 60vw;
         margin-top: 100px;
     }
+    .error-image{
+        height: 60vw;
+        margin-top: -100px;
+    }
     .weather-data-container {
         gap: 40px;
     }
@@ -334,5 +347,6 @@ button {
     .error-image {
         height: 95vw;
         width: 95vw;
+        margin-top: -80px;
     }
 }

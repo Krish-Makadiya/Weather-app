@@ -20,7 +20,7 @@ homePage.classList.add('home-active');
 searchBtn.addEventListener('click', ()=>{
     let location = searchField.value;
     if(location == ""){
-        alert('Please Enter a Valid Location');
+        homePage.classList.add('home-active');
     }
     else{
         weatherContainer.classList.remove('active');
@@ -37,7 +37,7 @@ searchField.addEventListener('keydown', (event)=>{
         console.log('pressed enter');
         let location = searchField.value;
         if(location == ""){
-            alert('Please Enter a Valid Location');
+            homePage.classList.add('home-active');
         }
         else{
             weatherContainer.classList.remove('active');
