@@ -14,25 +14,114 @@
     gap: 30px;
 }
 
-.error-container{
-    position: absolute;
+.home-page {
     width: 100%;
+    height: 100vh;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0;
+    z-index: -3;
+}
+
+.home-page p{
+    font-size: 2rem;
+}
+
+.home-image {
+    height: 60vh;
+    object-fit: contain;
+    margin-top: 50px;
+}
+
+.home-active{
+    opacity: 1;
+}
+
+.error-container {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
+    opacity: 0;
+    z-index: -3;
 }
 
-.error-image{
-    display: none;
+.error-image {
     height: 400px;
     width: 400px;
 }
 
-.error-active{
-    display: block;
+.error-active {
+    opacity: 1;
+}
+
+/* loader section */
+
+.loader-container {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    z-index: -3;
+}
+
+.active-loader {
+    opacity: 1;
+}
+.custom-loader {
+    width: 70px;
+    height: 70px;
+    background: #000;
+    border-radius: 50px;
+    mask: radial-gradient(
+                circle 31px at 50% calc(100% + 13px),
+                #000 95%,
+                #0000
+            )
+            top 4px left 50%,
+        radial-gradient(circle 31px, #000 95%, #0000) center,
+        radial-gradient(circle 31px at 50% -13px, #000 95%, #0000) bottom 4px
+            left 50%,
+        linear-gradient(#000 0 0);
+    mask-composite: xor;
+    mask-composite: exclude;
+    mask-repeat: no-repeat;
+    animation: cu10 1.5s infinite;
+}
+
+@keyframes cu10 {
+    0% {
+        -webkit-mask-size: 0 18px, 0 18px, 0 18px, auto;
+    }
+    16.67% {
+        -webkit-mask-size: 100% 18px, 0 18px, 0 18px, auto;
+    }
+    33.33% {
+        -webkit-mask-size: 100% 18px, 100% 18px, 0 18px, auto;
+    }
+    50% {
+        -webkit-mask-size: 100% 18px, 100% 18px, 100% 18px, auto;
+    }
+    66.67% {
+        -webkit-mask-size: 0 18px, 100% 18px, 100% 18px, auto;
+    }
+    83.33% {
+        -webkit-mask-size: 0 18px, 0 18px, 100% 18px, auto;
+    }
+    100% {
+        -webkit-mask-size: 0 18px, 0 18px, 0 18px, auto;
+    }
 }
 
 .navbar {
+    height: 9vh;
     width: 100%;
     display: flex;
     justify-content: space-around;
@@ -91,10 +180,11 @@ button {
     font-size: 1.4rem;
     font-weight: 200;
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
+    margin-top: 20px;
 }
 
-.weather-condition{
+.weather-condition {
     height: 200px;
     width: 200px;
 }
@@ -143,28 +233,34 @@ button {
     gap: 8px;
 }
 
-.stat{
+.stat {
     font-size: 1.2rem;
     text-align: center;
 }
 
-.stat-heading{
+.stat-heading {
     font-size: 1rem;
 }
-
 
 /* Adding responsive Layout */
 @media screen and (max-width: 768px) {
     .navbar {
-        height: 96px;
+        height: 110px;
         flex-direction: column;
     }
-    .tag-name{
+    .tag-name {
         padding: 0 0 0 20px;
     }
     .search-bar input {
         height: 2.4rem;
         width: 60vw;
+    }
+    .home-page p{
+        font-size: 1.8rem;
+    }
+    .home-image {
+        height: 60vw;
+        margin-top: 60px;
     }
     .weather-data-container {
         gap: 50px;
@@ -177,7 +273,7 @@ button {
         gap: 0px;
         flex-direction: column;
     }
-    .weather-condition{
+    .weather-condition {
         height: 200px;
         width: 200px;
     }
@@ -194,14 +290,20 @@ button {
     }
 }
 
-@media screen and (max-width: 480px){
+@media screen and (max-width: 480px) {
     .navbar {
-        height: 95px;
         flex-direction: column;
     }
     .search-bar input {
         height: 2.4rem;
         width: 80vw;
+    }
+    .home-page p{
+        font-size: 1.4rem;
+    }
+    .home-image {
+        height: 60vw;
+        margin-top: 100px;
     }
     .weather-data-container {
         gap: 40px;
@@ -215,9 +317,9 @@ button {
     }
 }
 
-@media screen and (max-width: 400px){
+@media screen and (max-width: 400px) {
     .navbar {
-        height: 180px;
+        height: 100px;
         flex-direction: column;
     }
     .temp-stats {
@@ -225,8 +327,12 @@ button {
         gap: 40px;
         margin-top: 40px;
     }
-    .statWeather img{
+    .statWeather img {
         height: 140px;
         width: 140px;
+    }
+    .error-image {
+        height: 95vw;
+        width: 95vw;
     }
 }

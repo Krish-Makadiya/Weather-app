@@ -6,14 +6,16 @@ const description = document.querySelector('.desc');
 const windStat = document.querySelector('.wind-stat');
 const humidityStat = document.querySelector('.humidity-stat');
 const cloudStat = document.querySelector('.cloud-stat');
-// const loader = document.querySelector('.load');
+const loader = document.querySelector('.loader-container');
 const weatherContainer = document.querySelector('.weather-data-container');
-const errorPage = document.querySelector('.error-image');
+const errorPage = document.querySelector('.error-container');
 const currWeather = document.querySelector('.weather-condition');
+const homePage = document.querySelector('.home-page');
 
 
 
 const APIkey = '4f712e2d8f10efcb77274bc8ece460b6';
+homePage.classList.add('home-active');
 
 searchBtn.addEventListener('click', ()=>{
     let location = searchField.value;
@@ -23,12 +25,14 @@ searchBtn.addEventListener('click', ()=>{
     else{
         weatherContainer.classList.remove('active');
         errorPage.classList.remove('error-active');
-        // loader.classList.add('three-body');
+        homePage.classList.remove('home-active');
+        loader.classList.add('active-loader');
         searchLocationWeather(location);
     }
 })
 
 searchField.addEventListener('keydown', (event)=>{
+    homePage.classList.remove('home-active');
     if(event.key === 'Enter'){
         console.log('pressed enter');
         let location = searchField.value;
@@ -38,7 +42,7 @@ searchField.addEventListener('keydown', (event)=>{
         else{
             weatherContainer.classList.remove('active');
             errorPage.classList.remove('error-active');
-            // loader.classList.add('three-body');
+            loader.classList.add('active-loader');
             searchLocationWeather(location);
         }
         
@@ -51,11 +55,11 @@ async function searchLocationWeather(location){
         const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${APIkey}&units=metric`);
         const result = await response.json();
         if(result.message == 'city not found'){
-            // loader.classList.remove('three-body');
+            loader.classList.remove('active-loader');
             errorPage.classList.add('error-active');
         }
         else{
-            // loader.classList.remove('three-body');
+            loader.classList.remove('active-loader');
             errorPage.classList.remove('error-active');
             renderWeatherData(result);
             weatherContainer.classList.add('active');
@@ -63,7 +67,7 @@ async function searchLocationWeather(location){
     } 
     catch (error) {
         errorPage.classList.add('error-active');
-        // loader.classList.remove('three-body');
+        loader.classList.remove('active-loader');
     }
 }
 

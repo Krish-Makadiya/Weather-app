@@ -16,25 +16,38 @@
 </head>
 
 <body>
-    <div class="wrapper">
-        <div class="navbar">
-            <h1 class="tag-name">WeatherSync.</h1>
-            <div class="search-bar">
-                <input type="text" name="" id="search-text" placeholder="Enter your city...">
-                <button class="search-btn">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </button>
-            </div>
+    <div class="navbar">
+        <h1 class="tag-name">WeatherSync.</h1>
+        <div class="search-bar">
+            <input type="text" name="" id="search-text" placeholder="Enter your city...">
+            <button class="search-btn">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
         </div>
-        
-        
+    </div>
+
+    <div class="wrapper">
+
+        <div class="home-page">
+            <img src="assets/homePage.jpg" class="home-image">
+            <p>Enter Your <span class="bold">City Name.</span></p>
+        </div>
+
+        <div class="error-container">
+            <img src="assets/error404.jpg" class="error-image">
+        </div>
+
+        <div class="loader-container">
+            <div class="custom-loader"></div>
+        </div>
+
         <div class="weather-data-container">
             <div>
                 <p class="place-desc">
                     Right Now in <span class="bold"></span>
                 </p>
             </div>
-            
+
             <div class="img-temp-desc">
                 <img src="" class="weather-condition">
                 <div class="weather-temp">
@@ -49,13 +62,13 @@
                     <p class="stat-heading">Wind</p>
                     <p class="wind-stat stat"></p>
                 </div>
-                
+
                 <div class="statWeather">
                     <img src="assets/air.png" height="90" width="90">
                     <p class="stat-heading">Humidity</p>
                     <p class="humidity-stat stat"></p>
                 </div>
-                
+
                 <div class="statWeather">
                     <img src="assets/cloud.png" height="90" width="90">
                     <p class="stat-heading">Clouds</p>
@@ -65,10 +78,7 @@
         </div>
     </div>
 
-    <div class="error-container">
-        <img src="assets/error404.jpg" class="error-image">
-    </div>
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js"></script>
     <script src="script.js"></script>
 </body>
