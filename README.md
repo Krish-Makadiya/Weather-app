@@ -38,7 +38,11 @@ To get started with the Simple Weather App, follow these steps:
 - OpenWeatherMap API
 - Web Development
 
-## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+## Contact
+
+For queries or suggestions, feel free to contact:
+- **Email**: krishmakadiay2005@gmail.com
+
+---
 
 Feel free to contribute by submitting issues or pull requests! Happy coding!
